@@ -1,6 +1,7 @@
 package com.rapture.hackaton_back.model;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -30,6 +31,10 @@ public class Consumer implements Serializable {
 	
 	@OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	private List<Qualification> qualifications;
+	
+	public Consumer() {
+		this.qualifications = new ArrayList<Qualification>();
+	}
 
 	public Long getId() {
 		return id;
